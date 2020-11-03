@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import { Spin } from 'antd'
-import logo from './logo.svg';
 import './antd.css';
 import './App.css';
 import ErrorPage from "./page/Error/ErrorPage";
@@ -23,52 +22,43 @@ const Loading = ({ isLoading, error }) => {
   }
 }
 
-const PageNotFound = ({ location }) => {
-  console.log('PageNotFound location', location)
-  return(
-    <ErrorPage path={location.pathname} code={404} />
-  )
-}
+const PageNotFound = ({ location }) => (
+  <ErrorPage path={location.pathname} code={404} />
+)
 
 const NoPermission = ({ location }) => (
   <ErrorPage path={location.pathname} code={403} />
 )
 
 const ArkPageConfig = {
-  agent: Loadable({
+  Agent: Loadable({
     loading: Loading,
-    // loader: () => import('@Page/PanamaHome')
-    loader: () => <div>test ArkPageConfig</div>
+    loader: () => import('./page/AgentPage')
   })
 }
 
-const App =()=> {
+// const ArkPage = Loadable({
+//   loading: Loading,
+//   loader: () => import('./page/AgentPage')
+// })
 
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
-  return (
+const App =()=> {
+  const [initLang, setInitLang] = useState(false)
+
+  useEffect(() => {
+    loadLang()
+  }, [])
+
+  const loadLang = async () => {
+    setInitLang(true)
+  }
+  return initLang?(
     <BrowserRouter history={routerHistory} basename={'/ark'}>
       <LayoutWrapper>
         <Switch>
           {/*<Route exact path={'/'} component={Panama.Home} />*/}
 
-          <Route exact path={'/agent'} component={ArkPageConfig.agent} />
+          <Route exact path={'/agent'} component={ArkPageConfig.Agent} />
 
           <Route exact path={'/no-permission'} component={NoPermission} />
 
@@ -76,6 +66,10 @@ const App =()=> {
         </Switch>
       </LayoutWrapper>
     </BrowserRouter>
+  ):(
+    <Spin>
+      <Spin size="large" />
+    </Spin>
   )
 }
 

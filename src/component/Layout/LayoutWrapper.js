@@ -2,7 +2,6 @@ import React from 'react'
 import { Layout } from "antd";
 import { withRouter } from 'react-router'
 import Header from "./Header";
-import MainBody from "./MainBody";
 import SideMenu from "./SideMenu";
 import Footer from "./Footer";
 import LayoutConstant from "./LayoutConstant";
@@ -19,7 +18,7 @@ const LayoutWrapper = props =>{
 
   let header = <Header />
   let sideMenu = <SideMenu />
-  let mainBody = <MainBody>{props.children}</MainBody>
+  let mainBody = <Layout>{props.children}</Layout>
   let footer = <Footer />
 
   if(isCurrentUrlExclude){

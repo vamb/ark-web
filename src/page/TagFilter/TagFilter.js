@@ -1,8 +1,13 @@
 import React from 'react'
+import SearchFilter from "./component/SearchFilter";
+import { Row } from 'antd'
 
 const TagFilter = ()=>{
   return(
-    <div>TagFilter</div>
+    <div>
+      <Row>TagFilter</Row>
+      <Row><SearchFilter /></Row>
+    </div>
   )
 }
 

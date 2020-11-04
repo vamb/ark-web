@@ -3,32 +3,81 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './antd.css';
 import './App.css';
 import { AgentPage, TagFilter } from './page';
-// import AgentPage from "./page/Agent/AgentPage";
+import { Button, Row, Col } from 'antd'
+import { observable, action } from 'mobx'
+import { observer } from 'mobx-react'
 
-const App =()=> {
+const InnerStore = {}
+
+InnerStore.innerStore = observable({
+  chosen: 'home'
+})
+
+const { innerStore } = InnerStore
+
+InnerStore.updateChosen = action((key)=>{
+  innerStore.chosen = key
+})
+
+const App = observer(()=> {
  return(
    <Router>
-     <div>
+     <div style={{padding: '20px 30px'}}>
        <nav>
-         <ul>
-           <li>
-             <Link to="/">Home</Link>
-           </li>
-           <li>
-             <Link to="/about">About</Link>
-           </li>
-           <li>
-             <Link to="/users">Users</Link>
-           </li>
-           <li>
-             <Link to="/agentPage">Agent Page</Link>
-           </li>
-           <li>
-             <Link to="/tagFilter">Tag Filter</Link>
-           </li>
-         </ul>
+         <Row style={{marginBottom: '20px'}}>
+           <Col span={2}>
+             <Link to="/">
+               <Button
+                 type={'home' === innerStore.chosen? 'primary': null}
+                 onClick={()=>{
+                   InnerStore.updateChosen('home')
+                 }}
+               >Home</Button>
+             </Link>
+           </Col>
+           <Col span={2}>
+             <Link to="/about">
+               <Button
+                 type={'about' === innerStore.chosen? 'primary': null}
+                 onClick={()=>{
+                   InnerStore.updateChosen('about')
+                 }}
+               >About</Button>
+             </Link>
+           </Col>
+           <Col span={2}>
+             <Link to="/users">
+               <Button
+                 type={'users' === innerStore.chosen? 'primary': null}
+                 onClick={()=>{
+                   InnerStore.updateChosen('users')
+                 }}
+               >Users</Button>
+             </Link>
+           </Col>
+           <Col span={2}>
+             <Link to="/agentPage">
+               <Button
+                 type={'agentPage' === innerStore.chosen? 'primary': null}
+                 onClick={()=>{
+                   InnerStore.updateChosen('agentPage')
+                 }}
+               >Agent Page</Button>
+             </Link>
+           </Col>
+           <Col span={2}>
+             <Link to="/tagFilter">
+               <Button
+                 type={'tagFilter' === innerStore.chosen? 'primary': null}
+                 onClick={()=>{
+                   InnerStore.updateChosen('tagFilter')
+                 }}
+               >Tag Filter</Button>
+             </Link>
+           </Col>
+         </Row>
        </nav>
-
+        <hr/>
        {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
        <Switch>
@@ -51,7 +100,7 @@ const App =()=> {
      </div>
    </Router>
  )
-}
+})
 
 function Home() {
   return <h2>Home</h2>;

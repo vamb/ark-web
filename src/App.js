@@ -1,76 +1,54 @@
-import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Loadable from 'react-loadable'
-import { Spin } from 'antd'
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './antd.css';
 import './App.css';
-import ErrorPage from "./page/Error/ErrorPage";
-import routerHistory from './utils/routerHistory'
-import LayoutWrapper from "./component/Layout/LayoutWrapper";
-
-const Loading = ({ isLoading, error }) => {
-  if (isLoading) {
-    return (
-      <Spin>
-        <Spin size="large" />
-      </Spin>
-    )
-  } else if (error) {
-    return error
-  } else {
-    return null
-  }
-}
-
-const PageNotFound = ({ location }) => (
-  <ErrorPage path={location.pathname} code={404} />
-)
-
-const NoPermission = ({ location }) => (
-  <ErrorPage path={location.pathname} code={403} />
-)
-
-const ArkPageConfig = {
-  Agent: Loadable({
-    loading: Loading,
-    loader: () => import('./page/AgentPage')
-  })
-}
-
-// const ArkPage = Loadable({
-//   loading: Loading,
-//   loader: () => import('./page/AgentPage')
-// })
 
 const App =()=> {
-  const [initLang, setInitLang] = useState(false)
+ return(
+   <Router>
+     <div>
+       <nav>
+         <ul>
+           <li>
+             <Link to="/">Home</Link>
+           </li>
+           <li>
+             <Link to="/about">About</Link>
+           </li>
+           <li>
+             <Link to="/users">Users</Link>
+           </li>
+         </ul>
+       </nav>
 
-  useEffect(() => {
-    loadLang()
-  }, [])
+       {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+       <Switch>
+         <Route path="/about">
+           <About />
+         </Route>
+         <Route path="/users">
+           <Users />
+         </Route>
+         <Route path="/">
+           <Home />
+         </Route>
+       </Switch>
+     </div>
+   </Router>
+ )
+}
 
-  const loadLang = async () => {
-    setInitLang(true)
-  }
-  return initLang?(
-    <BrowserRouter history={routerHistory} basename={'/ark'}>
-      <LayoutWrapper>
-        <Switch>
-          {/*<Route exact path={'/'} component={Panama.Home} />*/}
+function Home() {
+  return <h2>Home</h2>;
+}
 
-          <Route exact path={'/agent'} component={ArkPageConfig.Agent} />
+function About() {
+  return <h2>About</h2>;
+}
 
-          <Route exact path={'/no-permission'} component={NoPermission} />
-
-          <Route component={PageNotFound} />
-        </Switch>
-      </LayoutWrapper>
-    </BrowserRouter>
-  ):(
-    <Spin>
-      <Spin size="large" />
-    </Spin>
-  )
+function Users() {
+  return <h2>Users</h2>;
 }
 
 export default App;

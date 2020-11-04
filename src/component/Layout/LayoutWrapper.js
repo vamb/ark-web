@@ -16,6 +16,8 @@ const LayoutWrapper = props =>{
     isCurrentUrlExclude = LayoutConstant.EXCLUDE_LIST.includes(pathname)
   }
 
+  console.log('LayoutWrapper isCurrentUrlExclude', isCurrentUrlExclude)
+
   let header = <Header />
   let sideMenu = <SideMenu />
   let mainBody = <Layout>{props.children}</Layout>

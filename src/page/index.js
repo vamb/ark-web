@@ -1,3 +1,4 @@
-import { AgentPage } from "./AgentPage";
+import { AgentPage } from "./Agent";
+import { TagFilter } from "./TagFilter";
 
-export { AgentPage }
+export { AgentPage, TagFilter }

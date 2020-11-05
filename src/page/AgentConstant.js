@@ -1,5 +1,14 @@
 const AgentConstant = {}
 
+AgentConstant.ROOT = {
+  EXP_LEVEL: "EXP_LEVEL",
+  BATTLE_POSITION: "BATTLE_POSITION",
+  GENDER: 'GENDER',
+  IS_PUBLIC_TO_HIRE: 'IS_PUBLIC_TO_HIRE',
+  JOB_TYPE: 'JOB_TYPE',
+  TAG: 'TAG'
+}
+
 AgentConstant.EXP_LEVEL = {
   NEW: { label: '新手', value: 0 },
   OLD: { label: "资深干员", value: 1 },
@@ -22,12 +31,12 @@ AgentConstant.BATTLE_POSITION_LIST = [
   { label: "远程位", value: 1}
 ]
 
-AgentConstant.GENTER = {
+AgentConstant.GENDER = {
   MALE: { label: "男性", value: 0 },
   FEMALE: { label: '女性', value: 1 }
 }
 
-AgentConstant.GENTER_LIST = [
+AgentConstant.GENDER_LIST = [
   { label: "男性", value: 0 },
   { label: '女性', value: 1 }
 ]

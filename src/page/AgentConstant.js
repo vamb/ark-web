@@ -95,4 +95,22 @@ AgentConstant.TAG_LIST = [
   { label: "支援机械", value: 15 },
 ]
 
+AgentConstant.STAR = {
+  ONE: { label: '1星', value: 1 },
+  TWO: { label: '2星', value: 2 },
+  THREE: { label: '3星', value: 3 },
+  FOUR: { label: '4星', value: 4 },
+  FIVE: { label: '5星', value: 5 },
+  SIX: { label: '6星', value: 6 },
+}
+
+AgentConstant.STAR_LIST = [
+  { label: '1星', value: 1 },
+  { label: '2星', value: 2 },
+  { label: '3星', value: 3 },
+  { label: '4星', value: 4 },
+  { label: '5星', value: 5 },
+  { label: '6星', value: 6 },
+]
+
 export default AgentConstant

@@ -13,7 +13,6 @@ SearchStore.searchStore = observable({
 const { searchStore } = SearchStore
 
 SearchStore.updateChosen = action((typeName, value, flag)=>{
-
   if(flag){
     searchStore[typeName].push(value)
   }else{
@@ -25,6 +24,10 @@ SearchStore.updateChosen = action((typeName, value, flag)=>{
     })
     searchStore[typeName] = temp
   }
+})
+
+SearchStore.rootBtnClick = action(typeName=>{
+
 })
 
 export default SearchStore

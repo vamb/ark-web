@@ -12,7 +12,9 @@ const SearchFilter = observer(()=>{
     <div>
       <Row>
         <Col span={6}>
-          <Button>ALL</Button>
+          <Button
+            type={searchStore.star.length === AgentConstant.STAR_LIST.length? 'primary': ''}
+          >ALL</Button>
         </Col>
         <Col span={18}>
           {
@@ -36,7 +38,9 @@ const SearchFilter = observer(()=>{
       <SelfDivide />
       <Row>
         <Col span={6}>
-          <Button>资质</Button>
+          <Button
+            type={searchStore.expLevel.length === AgentConstant.EXP_LEVEL_LIST.length? 'primary': null}
+          >资质</Button>
         </Col>
         <Col span={18}>
           {
@@ -60,7 +64,9 @@ const SearchFilter = observer(()=>{
       <SelfDivide />
       <Row>
         <Col span={6}>
-          <Button>位置</Button>
+          <Button
+            type={searchStore.battlePosition.length === AgentConstant.BATTLE_POSITION_LIST.length? 'primary': null}
+          >位置</Button>
         </Col>
         <Col span={18}>
           {
@@ -84,7 +90,9 @@ const SearchFilter = observer(()=>{
       <SelfDivide />
       <Row>
         <Col span={6}>
-          <Button>种类</Button>
+          <Button
+            type={searchStore.jobType.length === AgentConstant.JOB_TYPE_LIST.length? 'primary': null}
+          >种类</Button>
         </Col>
         <Col span={18}>
           {
@@ -108,7 +116,12 @@ const SearchFilter = observer(()=>{
       <SelfDivide />
       <Row>
         <Col span={6}>
-          <Button>词缀</Button>
+          <Button
+            type={searchStore.tagList.length === AgentConstant.TAG_LIST.length? 'primary': null}
+            onClick={()=>{
+
+            }}
+          >词缀</Button>
         </Col>
         <Col span={18}>
           {

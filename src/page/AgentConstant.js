@@ -1,6 +1,7 @@
 const AgentConstant = {}
 
 AgentConstant.ROOT = {
+  STAR: "STAR",
   EXP_LEVEL: "EXP_LEVEL",
   BATTLE_POSITION: "BATTLE_POSITION",
   GENDER: 'GENDER',
@@ -88,20 +89,20 @@ AgentConstant.TAG = {
 
 AgentConstant.TAG_LIST = [
   { label: "治疗", value: 0 },
-  { label: "支援", value: 2 },
-  { label: "输出", value: 3 },
-  { label: "群攻", value: 4 },
-  { label: "减速", value: 5 },
-  { label: "生存", value: 6 },
-  { label: "防护", value: 7 },
-  { label: "削弱", value: 8 },
-  { label: "位移", value: 9 },
-  { label: "控场", value: 10 },
-  { label: "爆发", value: 11 },
-  { label: "召唤", value: 12 },
-  { label: "快速复活", value: 13 },
-  { label: "费用回复", value: 14 },
-  { label: "支援机械", value: 15 },
+  { label: "支援", value: 1 },
+  { label: "输出", value: 2 },
+  { label: "群攻", value: 3 },
+  { label: "减速", value: 4 },
+  { label: "生存", value: 5 },
+  { label: "防护", value: 6 },
+  { label: "削弱", value: 7 },
+  { label: "位移", value: 8 },
+  { label: "控场", value: 9 },
+  { label: "爆发", value: 10 },
+  { label: "召唤", value: 11 },
+  { label: "快速复活", value: 12 },
+  { label: "费用回复", value: 13 },
+  { label: "支援机械", value: 14 },
 ]
 
 AgentConstant.STAR = {

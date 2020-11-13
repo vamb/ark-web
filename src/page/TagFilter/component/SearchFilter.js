@@ -14,6 +14,9 @@ const SearchFilter = observer(()=>{
         <Col span={6}>
           <Button
             type={searchStore.star.length === AgentConstant.STAR_LIST.length? 'primary': ''}
+            onClick={()=>{
+              SearchStore.rootBtnClick(AgentConstant.ROOT.STAR)
+            }}
           >ALL</Button>
         </Col>
         <Col span={18}>
@@ -27,7 +30,6 @@ const SearchFilter = observer(()=>{
                   type={isCurrentChosen? 'primary': null}
                   onClick={()=>{
                     SearchStore.updateChosen('star', item['value'], !isCurrentChosen)
-                    // console.log('STAR_LIST item', item)
                   }}
                 >{item.label}</Button>
               )
@@ -40,6 +42,9 @@ const SearchFilter = observer(()=>{
         <Col span={6}>
           <Button
             type={searchStore.expLevel.length === AgentConstant.EXP_LEVEL_LIST.length? 'primary': null}
+            onClick={()=>{
+              SearchStore.rootBtnClick(AgentConstant.ROOT.EXP_LEVEL)
+            }}
           >资质</Button>
         </Col>
         <Col span={18}>
@@ -66,6 +71,9 @@ const SearchFilter = observer(()=>{
         <Col span={6}>
           <Button
             type={searchStore.battlePosition.length === AgentConstant.BATTLE_POSITION_LIST.length? 'primary': null}
+            onClick={()=>{
+              SearchStore.rootBtnClick(AgentConstant.ROOT.BATTLE_POSITION)
+            }}
           >位置</Button>
         </Col>
         <Col span={18}>
@@ -92,6 +100,9 @@ const SearchFilter = observer(()=>{
         <Col span={6}>
           <Button
             type={searchStore.jobType.length === AgentConstant.JOB_TYPE_LIST.length? 'primary': null}
+            onClick={()=>{
+              SearchStore.rootBtnClick(AgentConstant.ROOT.JOB_TYPE)
+            }}
           >种类</Button>
         </Col>
         <Col span={18}>
@@ -119,7 +130,7 @@ const SearchFilter = observer(()=>{
           <Button
             type={searchStore.tagList.length === AgentConstant.TAG_LIST.length? 'primary': null}
             onClick={()=>{
-
+              SearchStore.rootBtnClick(AgentConstant.ROOT.TAG)
             }}
           >词缀</Button>
         </Col>

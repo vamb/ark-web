@@ -1,7 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { Row, Col, Button } from 'antd'
-import AgentConstant from "../../AgentConstant";
+import AgentConstant from "../../../AgentConstant";
 import SelfDivide from "./SelfDivide";
 import SearchStore from "../Store/SearchStore";
 
@@ -9,7 +9,7 @@ const { searchStore } = SearchStore
 
 const SearchFilter = observer(()=>{
   return(
-    <div>
+    <div style={{padding: '8px 0'}}>
       <Row>
         <Col span={6}>
           <Button

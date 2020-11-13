@@ -1,5 +1,6 @@
 import { observable, action } from 'mobx'
-import AgentConstant from "../../AgentConstant";
+import AgentConstant from "../../../AgentConstant";
+import TagsStore from "../../Agent/Store/SearchStore";
 
 const SearchStore = {}
 
@@ -25,6 +26,7 @@ SearchStore.updateChosen = action((typeName, value, flag)=>{
     })
     searchStore[typeName] = temp
   }
+  SearchStore.updateAgentTags()
 })
 
 SearchStore.rootBtnClick = action(typeName=>{
@@ -65,6 +67,11 @@ SearchStore.rootBtnClick = action(typeName=>{
       }
       break
   }
+  SearchStore.updateAgentTags()
+})
+
+SearchStore.updateAgentTags = action(()=>{
+  TagsStore.setTags(searchStore)
 })
 
 export default SearchStore

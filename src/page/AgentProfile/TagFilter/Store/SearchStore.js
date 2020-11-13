@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx'
 import AgentConstant from "../../../AgentConstant";
-import TagsStore from "../../Agent/Store/SearchStore";
+import TagsStore from "../../Agent/Store/TagsStore";
 
 const SearchStore = {}
 

@@ -3,6 +3,8 @@ import { observer } from 'mobx-react'
 import { Row, Col, Table } from 'antd'
 import TagsStore from "./Store/TagsStore";
 import CustomerTag from "./Component/CustomerTag";
+import AgentConstant from "../../AgentConstant";
+import AgentUnit from "./Component/AgentUnit";
 
 const { tagsStore } = TagsStore
 
@@ -25,9 +27,17 @@ const AgentPage = observer(() =>{
       title: '可能出现',
       dataIndex: 'agents',
       width: 400,
-      render: text => <span>{text}</span>
+      render: text => {
+        return(
+          <AgentUnit />
+        )
+      }
     },
   ]
+  const tempData = {
+    tags: null,
+    agents: AgentConstant.SAMPLE_AGENT
+  }
   return(
     <div>
       <Table

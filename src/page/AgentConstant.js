@@ -123,4 +123,10 @@ AgentConstant.STAR_LIST = [
   { label: '6星', value: 6 },
 ]
 
+AgentConstant.SAMPLE_AGENT = {
+  agentName: '阿米娅',
+  start: 5,
+  avatar: require('../source/img/146-amiyafashu.jpg')
+}
+
 export default AgentConstant

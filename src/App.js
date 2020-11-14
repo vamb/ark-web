@@ -6,6 +6,7 @@ import { AgentPage, TagFilter, AgentProfile } from './page';
 import { Button, Row, Col } from 'antd'
 import { observable, action } from 'mobx'
 import { observer } from 'mobx-react'
+import AgentUnit from "./page/AgentProfile/Agent/Component/AgentUnit";
 
 const InnerStore = {}
 
@@ -85,12 +86,25 @@ const App = observer(()=> {
                >Agent Profile</Button>
              </Link>
            </Col>
+           <Col span={2}>
+             <Link to="/AgentUnit">
+               <Button
+                 type={'AgentUnit' === innerStore.chosen? 'primary': null}
+                 onClick={()=>{
+                   InnerStore.updateChosen('AgentUnit')
+                 }}
+               >Agent Unit</Button>
+             </Link>
+           </Col>
          </Row>
        </nav>
         <hr/>
        {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
        <Switch>
+         <Route path={"/AgentUnit"}>
+           <AgentUnit />
+         </Route>
          <Route path={"/AgentProfile"}>
            <AgentProfile />
          </Route>

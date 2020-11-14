@@ -13,6 +13,7 @@ TagsStore.tagsStore = observable({
 const { tagsStore } = TagsStore
 
 TagsStore.setTags = action((param)=>{
+  console.log('TagsStore.setTags param', JSON.parse(JSON.stringify(param)))
   if(param){
     if(param['star']){
       tagsStore.star = param['star']

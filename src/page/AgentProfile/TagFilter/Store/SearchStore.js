@@ -26,7 +26,7 @@ SearchStore.updateChosen = action((typeName, value, flag)=>{
     })
     searchStore[typeName] = temp
   }
-  SearchStore.updateAgentTags()
+  TagsStore.setTags(searchStore)
 })
 
 SearchStore.rootBtnClick = action(typeName=>{
@@ -67,11 +67,8 @@ SearchStore.rootBtnClick = action(typeName=>{
       }
       break
   }
-  SearchStore.updateAgentTags()
-})
-
-SearchStore.updateAgentTags = action(()=>{
   TagsStore.setTags(searchStore)
 })
+
 
 export default SearchStore

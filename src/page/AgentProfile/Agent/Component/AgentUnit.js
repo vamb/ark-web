@@ -1,8 +1,8 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import AgentConstant from "../../../AgentConstant";
-import imgUrl from '../../../../source/img/146-amiyafashu.jpg'
 import styled from 'styled-components'
+import ImgConstant from "../../../../source/ImgConstant";
 
 const getColor = (start)=>{
   let param6 = {
@@ -52,7 +52,7 @@ const AgentUnit = observer((props)=>{
       agentName = props['userName']
     }
     if(props['avatar']){
-      avatar = require(props['avatar'])
+      avatar = (props['avatar'])
     }
     if(props['start']){
       start = props['start']
@@ -82,11 +82,12 @@ const AgentUnit = observer((props)=>{
       text-align: center;
     }
   `
-
+  // ImgConstant.washStr()
   return(
     <Container className={'card-radius'} style={{background: cardColor, borderRadius: "4px"}}>
       <div className={'card-style'} >
-        <img src={imgUrl} className={'card-img'} />
+        {/*<img src={imgUrl} className={'card-img'} />*/}
+        {ImgConstant.getImg(avatar)}
       </div>
       <div className={'card-text'}>
         <span style={{color: textColor}}>
@@ -96,7 +97,5 @@ const AgentUnit = observer((props)=>{
     </Container>
   )
 })
-
-
 
 export default AgentUnit

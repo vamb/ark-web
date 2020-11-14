@@ -126,7 +126,9 @@ AgentConstant.STAR_LIST = [
 AgentConstant.SAMPLE_AGENT = {
   agentName: '阿米娅',
   start: 5,
-  avatar: require('../source/img/146-amiyafashu.jpg')
+  avatar: 153
 }
+
+AgentConstant.STATIC_PATH = '../../../../source/img/'
 
 export default AgentConstant

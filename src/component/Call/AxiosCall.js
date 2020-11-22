@@ -4,7 +4,7 @@ const AxiosCall = {}
 
 AxiosCall.postFun = () =>{
   console.log('postFun working')
-  Axios.post('192.168.2.7:8080/agent/getAll')
+  Axios.post('/api/agent/getAll')
     .then(function (response) {
       // handle success
       console.log(response);

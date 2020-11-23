@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './antd.css';
 import './App.css';
-import { AgentPage, TagFilter, AgentProfile } from './page';
+import { AgentPage, TagFilter, AgentProfile, AgentList } from './page';
 import { Button, Row, Col } from 'antd'
 import { observable, action } from 'mobx'
 import { observer } from 'mobx-react'
@@ -96,12 +96,25 @@ const App = observer(()=> {
                >Agent Unit</Button>
              </Link>
            </Col>
+           <Col span={2}>
+             <Link to="/AgentList">
+               <Button
+                 type={'AgentList' === innerStore.chosen? 'primary': null}
+                 onClick={()=>{
+                   InnerStore.updateChosen('AgentList')
+                 }}
+               >Agent List</Button>
+             </Link>
+           </Col>
          </Row>
        </nav>
         <hr/>
        {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
        <Switch>
+         <Route path={"/AgentList"}>
+           <AgentList />
+         </Route>
          <Route path={"/AgentUnit"}>
            <AgentUnit />
          </Route>
